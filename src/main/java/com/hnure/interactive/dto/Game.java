@@ -1,7 +1,5 @@
 package com.hnure.interactive.dto;
 
-import javax.persistence.Column;
-
 public class Game {
 
     private Integer difficultLevel;

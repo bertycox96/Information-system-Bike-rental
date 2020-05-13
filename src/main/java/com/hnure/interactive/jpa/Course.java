@@ -1,124 +1,133 @@
 package com.hnure.interactive.jpa;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import java.util.List;
 
 @Entity
 public class Course {
-        @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private Long courseId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long courseId;
 
-        @Column(name="price",nullable = false)
-        private Integer price;
-        @Column(name="completed_num",nullable = false)
-        private Integer completedNum;
-        @Column(name="rate",nullable = false)
-        private Double rate;
+    @Column(name = "price", nullable = false)
+    private Integer price;
+    @Column(name = "completed_num", nullable = false)
+    private Integer completedNum;
+    @Column(name = "rate", nullable = false)
+    private Double rate;
 
-        @ManyToOne(optional = false, cascade = CascadeType.ALL)
-        @JoinColumn(name = "category_id", nullable = false)
-        private Category category;
+    @ManyToOne(optional = false, cascade = CascadeType.ALL)
+    @JoinColumn(name = "category_id", nullable = false)
+    private Category category;
 
-        @Column(name="profit",nullable = false)
-        private Integer profit;
+    @Column(name = "profit", nullable = false)
+    private Integer profit;
 
-        @OneToMany(mappedBy = "courseOrder", fetch = FetchType.LAZY)
-        private List<Purchase> purchases;
+    @OneToMany(mappedBy = "courseOrder", fetch = FetchType.LAZY)
+    private List<Purchase> purchases;
 
-        @OneToMany(mappedBy = "coursePlayer", fetch = FetchType.LAZY)
-        private List<PlayerStats> playerstats;
+    @OneToMany(mappedBy = "coursePlayer", fetch = FetchType.LAZY)
+    private List<PlayerStats> playerstats;
 
-        @Column(name="description",nullable = false)
-        private String description;
-        @Column(name="tittle",nullable = false)
-        private String tittle;
+    @Column(name = "description", nullable = false)
+    private String description;
+    @Column(name = "tittle", nullable = false)
+    private String tittle;
 
-        public Course() {
-                completedNum=0;
-                rate=0.0;
-                category=new Category();
-                description="";
+    public Course() {
+        completedNum = 0;
+        rate = 0.0;
+        category = new Category();
+        description = "";
 
-        }
+    }
 
-        public Long getCourseId() {
-                return courseId;
-        }
+    public Long getCourseId() {
+        return courseId;
+    }
 
-        public void setCourseId(Long courseId) {
-                this.courseId = courseId;
-        }
+    public void setCourseId(Long courseId) {
+        this.courseId = courseId;
+    }
 
-        public Integer getPrice() {
-                return price;
-        }
+    public Integer getPrice() {
+        return price;
+    }
 
-        public void setPrice(Integer price) {
-                this.price = price;
-        }
+    public void setPrice(Integer price) {
+        this.price = price;
+    }
 
-        public Integer getCompletedNum() {
-                return completedNum;
-        }
+    public Integer getCompletedNum() {
+        return completedNum;
+    }
 
-        public void setCompletedNum(Integer completedNum) {
-                this.completedNum = completedNum;
-        }
+    public void setCompletedNum(Integer completedNum) {
+        this.completedNum = completedNum;
+    }
 
-        public Double getRate() {
-                return rate;
-        }
+    public Double getRate() {
+        return rate;
+    }
 
-        public void setRate(Double rate) {
-                this.rate = rate;
-        }
+    public void setRate(Double rate) {
+        this.rate = rate;
+    }
 
-        public Category getCategory() {
-                return category;
-        }
+    public Category getCategory() {
+        return category;
+    }
 
-        public void setCategory(Category category) {
-                this.category = category;
-        }
+    public void setCategory(Category category) {
+        this.category = category;
+    }
 
-        public Integer getProfit() {
-                return profit;
-        }
+    public Integer getProfit() {
+        return profit;
+    }
 
-        public List<Purchase> getPurchases() {
-                return purchases;
-        }
+    public void setProfit(Integer profit) {
+        this.profit = profit;
+    }
 
-        public void setPurchases(List<Purchase> purchases) {
-                this.purchases = purchases;
-        }
+    public List<Purchase> getPurchases() {
+        return purchases;
+    }
 
-        public List<PlayerStats> getPlayerstats() {
-                return playerstats;
-        }
+    public void setPurchases(List<Purchase> purchases) {
+        this.purchases = purchases;
+    }
 
-        public void setPlayerstats(List<PlayerStats> playerstats) {
-                this.playerstats = playerstats;
-        }
+    public List<PlayerStats> getPlayerstats() {
+        return playerstats;
+    }
 
-        public String getDescription() {
-                return description;
-        }
+    public void setPlayerstats(List<PlayerStats> playerstats) {
+        this.playerstats = playerstats;
+    }
 
-        public void setDescription(String description) {
-                this.description = description;
-        }
+    public String getDescription() {
+        return description;
+    }
 
-        public String getTittle() {
-                return tittle;
-        }
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-        public void setTittle(String tittle) {
-                this.tittle = tittle;
-        }
+    public String getTittle() {
+        return tittle;
+    }
 
-        public void setProfit(Integer profit) {
-                this.profit = profit;
-        }
+    public void setTittle(String tittle) {
+        this.tittle = tittle;
+    }
 }
