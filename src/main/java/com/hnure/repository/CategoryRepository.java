@@ -1,6 +1,6 @@
-package com.hnure.interactive.repository;
+package com.hnure.repository;
 
-import com.hnure.interactive.jpa.Category;
+import com.hnure.models.Category;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

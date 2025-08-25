@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="p-5">
+    <h1>Bike</h1>
+
+    <p th:utext="'id: '+${bike.id}"></p>
+    <p th:utext="'tittle: '+${bike.tittle}"></p>
+    <p th:utext="'description: '+${bike.description}"></p>
+    <p th:utext="'price: '+${bike.rentPrice}"></p>
+    <p th:utext="'Category: '+${bike.category.name}"></p>
+</div>
+
+</body>
+</html>
